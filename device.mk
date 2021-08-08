@@ -37,6 +37,23 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
+YOUR_HW_PLATFORM := sm8250
+
+# Hardware
+PRODUCT_BOARD_PLATFORM := $(YOUR_HW_PLATFORM)
+PRODUCT_USES_QCOM_HARDWARE := true
+
+# HALS
+SRC_AUDIO_HAL_DIR := hardware/qcom-caf/$(YOUR_HW_PLATFORM)/audio
+SRC_DISPLAY_HAL_DIR := hardware/qcom-caf/$(YOUR_HW_PLATFORM)/display
+SRC_MEDIA_HAL_DIR := hardware/qcom-caf/$(YOUR_HW_PLATFORM)/media
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+$(LOCAL_PATH) \
+hardware/qcom-caf/$(YOUR_HW_PLATFORM) \
+vendor/qcom/opensource/commonsys-intf/display
+
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi

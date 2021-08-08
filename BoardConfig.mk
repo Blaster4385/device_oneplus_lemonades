@@ -15,6 +15,7 @@
 #
 
 BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
 BOARD_VENDOR := oneplus
 
@@ -65,6 +66,7 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno650
 
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
+TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 

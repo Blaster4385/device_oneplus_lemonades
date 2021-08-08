@@ -4,3 +4,8 @@ persist.sys.sf.disable_blurs=1
 
 # Google Assistant
 ro.opa.eligible_device=true
+
+# Octavi
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.octavi.status=2.6 Official
+    ro.octavi.maintainer=TheTablaster
