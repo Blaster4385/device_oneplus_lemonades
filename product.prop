@@ -4,3 +4,7 @@ persist.sys.sf.disable_blurs=1
 
 # Google Assistant
 ro.opa.eligible_device=true
+
+dialer.supports.blur=true
+ro.octavi.status=2.8 Official
+ro.octavi.maintainer=TheTablaster

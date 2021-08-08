@@ -21,14 +21,18 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from lemonades device
 $(call inherit-product, device/oneplus/lemonades/device.mk)
 
-# Inherit some common PixelExperience stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit some common Octavi stuff.
+$(call inherit-product, vendor/octavi/config/common_full_phone.mk)
+
+OCTAVI_BUILD_TYPE=Official
+OCTAVI_DEVICE_MAINTAINER=TheTablaster
+TARGET_USES_BLUR := true
 
 # Boot Animation
 TARGET_BOOT_ANIMATION_RES := 1080
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := aosp_lemonades
+PRODUCT_NAME := octavi_lemonades
 PRODUCT_DEVICE := lemonades
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_BRAND := OnePlus
