@@ -45,29 +45,16 @@ public class KeyHandler implements DeviceKeyHandler {
 
     public KeyEvent handleKeyEvent(KeyEvent event) {
         int scanCode = event.getScanCode();
-        int currentRingerMode = mAudioManager.getRingerModeInternal();
 
         switch (scanCode) {
             case MODE_NORMAL:
-                if (currentRingerMode != AudioManager.RINGER_MODE_NORMAL) {
-                    mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL);
-                } else {
-                    return event;
-                }
+                mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL);
                 break;
             case MODE_VIBRATION:
-                if (currentRingerMode != AudioManager.RINGER_MODE_VIBRATE) {
-                    mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_VIBRATE);
-                } else {
-                    return event;
-                }
+                mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_VIBRATE);
                 break;
             case MODE_SILENCE:
-                if (currentRingerMode != AudioManager.RINGER_MODE_SILENT) {
-                    mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_SILENT);
-                } else {
-                    return event;
-                }
+                mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_SILENT);
                 break;
             default:
                 return event;
@@ -79,7 +66,8 @@ public class KeyHandler implements DeviceKeyHandler {
 
     private void doHapticFeedback() {
         if (mVibrator != null && mVibrator.hasVibrator()) {
-            mVibrator.vibrate(VibrationEffect.get(VibrationEffect.EFFECT_POP));
+            mVibrator.vibrate(VibrationEffect.createOneShot(50,
+                    VibrationEffect.DEFAULT_AMPLITUDE));
         }
     }
 }
